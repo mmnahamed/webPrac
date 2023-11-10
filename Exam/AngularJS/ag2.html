@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="angular-1.8.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form ng-app="" name="ngForm">
+        email : <input type="email" name="testemail" ng-model="text" required><br><br>
+        <span ng-show="ngForm.testemail.$error.email">Not valid!!</span><br>
+        Contact : <input type="text" name="regex" ng-model="number" ng-pattern="/^[0-9]+$/" required><br><br>
+        <span ng-show="ngForm.regex.$error.pattern">Not valid!!</span><br>
+
+        <input type="text" name="pincode" ng-model="txtpin" ng-pattern="/^[0-9]{1,5}$/" required />
+        <span style="color:Red" ng-show="ngForm.pincode.$error.required"> Required! </span>
+        <span style="color:Red" ng-show="ngForm.pincode.$dirty&&ngForm.pincode.$error.pattern">Only Numbers Allowed, Maximum 5 Characters</span>
+    </form>
+    
+</body>
+</html>

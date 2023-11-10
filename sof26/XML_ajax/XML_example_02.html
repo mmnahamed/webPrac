@@ -1,0 +1,42 @@
+
+<html >
+<head>
+    <title>Jquary-test2</title>
+</head>
+
+<script type="text/JavaScript">
+    function loadDoc(x) {
+        x = document.getElementById('dropVal').value;
+        var comobj=new XMLHttpRequest();
+        comobj.onreadystatechange=function(){
+            if(this.readyState == 4 && this.status == 200){
+                var Xdoc=this.responseXML;
+                var list="<table border='2'><tr><th>ARTIST</th><th>"+x+"</th></tr>";
+                var art=Xdoc.getElementsByTagName("ARTIST");   
+                var tit=Xdoc.getElementsByTagName(x);
+                for(i=0;i<tit.length;i++){
+                    list =list + "<tr><td>" + art[i].childNodes[0].nodeValue + "</td><td>" + tit[i].childNodes[0].nodeValue+"</td></tr>";
+                    // list = list + "<tr><td>"+ art[i].childNodes[0].nodeValue + "</td><td>"+tit[i].childNodes[0].nodeValue+"</td></tr>";
+                }  
+                list = list + "</table>" ;
+                document.getElementById("show").innerHTML=list;
+        }
+    };
+        comobj.open("GET","cd_catalog.xml", true);
+        comobj.send();
+    }
+</script>
+
+<body>
+    <h2> My CD Collection</h2>
+    <!-- <button type="button" onclick="loadDoc()"> Get my Collection</button> -->
+    <select id="dropVal" onchange="loadDoc()">
+        <option>select</option>
+        <option value="COMPANY">COMPANY</option>
+        <option value="ARTIST">ARTIST</option>
+        <option value="TITLE">TITLE</option>
+    </select>
+    <br><br>
+    <div id="show"></div>
+</body>
+</html>

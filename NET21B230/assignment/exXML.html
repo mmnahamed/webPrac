@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CD Collection</title>
+</head>
+<body>
+
+    <label for="">List artist with</label>
+    <select name="order" onchange="loadDoc(this)">
+        <option value="country">Country</option>
+        <option value="company">company</option>
+        <option value="price">Price</option>
+        <option value="year">Year</option>
+    </select>
+
+    <label for="">Price</label>
+    <input type="number" name="price" onkeyup="loadDocPrice(this.value)">
+
+    <h2>CD Catelog</h2>
+    <!-- <button type="button" onclick="loadDoc()">Get My CD Collection</button> -->
+    <p id="demo"></p>
+
+    <script>
+        function loadDoc(e){
+            var val = e.value;
+
+            var xhttp, xmlDoc, x, i;
+            xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200){
+                    label = val.toUpperCase();
+                    xmlDoc = xhttp.responseXML;
+                    txt = "<table border='1'><tr><th>Artist</th><th>"+label+"</th></tr>";
+
+
+                    x = xmlDoc.getElementsByTagName('ARTIST');
+                    y = xmlDoc.getElementsByTagName(label);
+
+
+                    for (let i = 0; i < x.length; i++) {
+                        txt = txt + "<tr><td>"+ x[i].childNodes[0].nodeValue +'</td><td>' + y[i].childNodes[0].nodeValue +'</td>'+ '</tr>';    
+                    }
+
+                    txt += "</table>"
+
+                    document.getElementById('demo').innerHTML = txt;
+                }
+            }
+
+            xhttp.open('GET', "cd_catelog.xml",true);
+            xhttp.send();
+        }
+
+        function loadDocPrice(e){
+            var price = e;
+
+            var xhttp, xmlDoc, x, i;
+            xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200){
+                    xmlDoc = xhttp.responseXML;
+                    txt = "<table border='1'><tr><th>Artist</th><th>Price</th></tr>";
+
+
+                    x = xmlDoc.getElementsByTagName('ARTIST');
+                    y = xmlDoc.getElementsByTagName('PRICE');
+
+
+                    for (let i = 0; i < x.length; i++) {
+                        if(y[i].childNodes[0].nodeValue >= price){
+                            txt = txt + "<tr><td>"+ x[i].childNodes[0].nodeValue +'</td><td>' + y[i].childNodes[0].nodeValue +'</td>'+ '</tr>';
+                        }    
+                    }
+
+                    txt += "</table>"
+
+                    document.getElementById('demo').innerHTML = txt;
+                }
+            }
+
+            xhttp.open('GET', "cd_catelog.xml",true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

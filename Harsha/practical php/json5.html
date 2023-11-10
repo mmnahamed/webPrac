@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Get data as JSON from a PHP file on the server</h2>
+        <input type="text" id="name"/>
+        <input type="button" value="clickme" onclick='myFun()'/>
+        <p id="demo"></p>
+        <script>  
+            function myFun(){
+                var val = document.getElementById("name");
+                var obj = {name:val.value,age:35};
+                var Job = JSON.stringify(obj);
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status ==200){
+                        myobj = JSON.parse(xmlhttp.responseText);
+                        document.getElementById("demo").innerHTML = myobj.name+ ","+myobj.city;
+                    }
+                };
+                xmlhttp.open("GET","json4.php?x="+Job,true);
+                xmlhttp.send();
+            }
+        </script>
+    </body>
+</html>

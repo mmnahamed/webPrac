@@ -1,0 +1,31 @@
+<html>
+<head>
+<script type="text/javascript" src="code.jquery.com_jquery-3.7.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#dis3").hide();
+    $("#dis4").hide();
+    $("#name").focusout(function(){
+        y=$("#name").val();
+        reg=/^[a-z][0-9]+(AB)$/;
+        if(reg.test(y)){
+            $("#dis3").hide();
+            $("#dis4").show();   
+
+        }
+        else{
+            $("#dis4").hide();
+            $("#dis3").show();
+        }
+    });
+});
+
+</script>
+</head>
+
+<body>
+    <label>Enter Name</label>
+    <input type="text" name="name" id="name">
+    <label id="dis3"><font color="#FF0000">This field does not reprent a name</font></label>
+    <label id="dis4"><font color="#00CC00">Your name is good</font></label>
+</body>

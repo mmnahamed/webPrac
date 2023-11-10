@@ -1,0 +1,5 @@
+{
+    "name" : "Shaan",
+    "age" : 26,
+    "Vegetarian" : false
+}

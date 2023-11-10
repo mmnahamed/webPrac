@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery3.7.0\jquery-3.7.0.min.js"></script>
+    <title>Document</title>
+
+    <script>
+        $(document).ready(function() {
+            $("#name").focusout(function() {
+                let username = $("#name").val();
+                let reg = /^[A-Za-z]+$/;
+
+                if (reg.test(username)) {
+                    $("p#msg").text("Successful!!");
+                }
+                else {
+                    $("p#msg").text("Error!!");
+                }
+            });
+
+            $("#email").focusout(function() {
+                email = $("#email").val();
+                reg = /^[a-z0-9]+@[a-z]+(\.com)$/;
+
+                if (reg.test(email)) {
+                    $("p#msg").text("Successful!!");
+                }
+                else {
+                    $("p#msg").text("Error!!");
+                }
+            });
+
+            $("#url").focusout(function() {
+                url = $("#name").val();
+                reg = /^[A-Za-z]+$/;
+
+                if (reg.test(url)) {
+                    $("p#msg").text("Successful!!");
+                }
+                else {
+                    $("p#msg").text("Error!!");
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    Enter your username : <input type="text" name="txt" id="name"><br><br>
+    Enter your email : <input type="text" name="email" id="email"><br><br>
+    Enter a valid URL : <input type="text" name="url" id="url"><br><br>
+    <p id="msg"></p>
+</body>
+</html>

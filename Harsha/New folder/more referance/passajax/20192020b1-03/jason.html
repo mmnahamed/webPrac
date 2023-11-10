@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="output-container"></div> 
+   <br/><br/>
+   <button onclick="loadDoc()">LoadData</button>
+   <script type="text/javascript">
+    function loadDoc(){
+        let xhttp,textDoc,stuObj,txt;
+        xhttp=new XMLHttpRequest(); // corrected from "newXMLHttpRequest()"
+        xhttp.onreadystatechange=function(){
+            if(this.readyState=== 4 && this.status === 200){ // corrected from "this.statuse"
+                textDoc=xhttp.responseText;
+                stuObj=JSON.parse(textDoc);
+                console.log(stuObj); // corrected from "stuobj"
+                            txt="<d1>";
+            txt+= "<dt><b>Name </b></dt>";
+            txt+="<dd>";
+            txt+= stuObj.name.firstName+ " "; // corrected from "+ """
+            txt+= stuObj.name.lastName;
+            txt+="</dd>";
+
+            txt+="<dt><b>Address</b></dt>";
+            txt+="<dd>";
+            txt+= stuObj.address.houseNumber + " ";
+            txt+= stuObj.address.street +" ";
+            txt+= stuObj.address.City + " ";
+            txt+= stuObj.address.District;
+            txt+="</dd>";
+
+            txt+="<dt><b>Phone Number</b></dt>";
+            txt+="<dd>";
+            txt+=stuObj.phoneNumber; // corrected from "stuObj.PhoneNumber"
+            txt+="</dd>";
+            
+            txt+= "<dt><b> Email</b></dt>";
+            txt+="<dd>";
+            txt+=stuObj.email;
+            txt+="</dd>";
+
+            txt+="<dt><b>Age</b></dt>";
+            txt+="<dd>";
+            txt+=stuObj.age;   
+            txt+="</dd>";
+
+            txt+="<dt><b>Gender</b></dt>";
+            txt+="<dd>";
+            txt+=stuObj.gender;   
+            txt+="</dd>";
+            txt+="</d1>";
+            document.getElementById("output-container").innerHTML=txt;
+        }
+    };
+    xhttp.open("GET","personal.txt",true)
+    xhttp.send();
+}
+</script>
+
+</body>
+</html>

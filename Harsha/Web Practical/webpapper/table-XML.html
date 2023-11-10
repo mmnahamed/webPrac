@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Car Table - XML</title>
+</head>
+<body>
+
+<select id="car-filter">
+	<option value="Year">Year</option>
+	<option value="Make">Make</option>
+	<option value="Model">Model</option>
+	<option value="Color">Color</option>
+</select>
+<br>
+<br>
+<button onclick="loadDoc()">Click</button>
+<br><br>
+<div id="data-table"></div>
+
+
+<script type="text/javascript">
+
+	function loadDoc(){
+
+		let xmlDoc, colname, xhttp, i, x, html = "";
+
+		colname = document.getElementById("car-filter").selectedOptions[0].value;
+
+		xhttp = new XMLHttpRequest();
+
+		xhttp.onreadystatechange = function() {
+
+			if(xhttp.readyState == 4 && xhttp.status == 200) {
+
+				xmlDoc = xhttp.responseXML;
+
+				x = xmlDoc.getElementsByTagName(colname);
+
+				html += "<table border='1' style='border-collapse:collapse;' cellpadding='5'>";
+
+				html += "<tr><th>" + colname + "</th></tr>";
+
+				for(i = 0; i < x.length; i++){
+
+					html += "<tr><td>" + x[i].innerHTML + "</td></tr>";
+
+				}
+
+				html += "</table>";
+
+				document.getElementById("data-table").innerHTML = html;
+
+			}
+
+		}
+
+		xhttp.open("GET","car.xml",true);
+
+		xhttp.send();
+
+	}
+</script>
+
+
+
+</body>
+</html>

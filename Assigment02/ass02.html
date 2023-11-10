@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery3.7.0\jquery-3.7.0.min.js"></script>
+    <title>Assignment 02</title>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+                $("#msg1").hide();
+                $("#msg2").hide();
+                $("#msg3").hide();
+                $("#msg4").hide();
+
+                $("#username").focusout(function(){
+                    a = $("#username").val();
+
+                    reg = /^(NET|SOF|MMW)[\d]{2}B(1|2)[\d]{2}$/; // NET21B221
+
+                    if (reg.test(a)) {
+                        $("#msg2").hide();
+                        $("#msg1").show();
+                    }
+                    else if (a == "") {
+                        $("#msg1").hide();
+                        $("#msg2").hide();
+                    }
+                    else {
+                        $("#msg1").hide();
+                        $("#msg2").show();
+                    }
+                });
+
+                
+
+                $("#password").focusout(function(){
+                    b = $("#password").val();
+                    console.log(b);
+
+                    reg = /^[a-zA-Z0-9]{8,}$/; //shaan2131
+
+                    if (reg.test(b)) {
+                        $("#msg4").hide();
+                        $("#msg3").show();
+                    }
+                    else if (b == "") {
+                        $("#msg3").hide();
+                        $("#msg4").hide();
+                    }
+                    else {
+                        $("#msg3").hide();
+                        $("#msg4").show();
+                    }
+                });
+
+
+            });
+    </script>
+
+    <style>
+        #msg1, #msg3 {
+            color: green;
+            float: inline-start;
+        }
+
+        #msg2, #msg4 {
+            color: red;
+            float: inline-start;
+        }
+
+    </style>
+</head>
+<body>
+    Username : <input type="text" id="username" name="username"><p id="msg1">Valid Username!</p><label><p id="msg2">Not a Valid Username!</p><br><br>
+    Password : <input type="password" id="password" name="password"><p id="msg3">Valid Username!</p><p id="msg4">Not a Valid Username!</p><br>
+    
+</body>
+</html>

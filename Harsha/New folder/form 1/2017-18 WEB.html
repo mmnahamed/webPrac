@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		td{
+			border-color:white ;
+			border-style: solid;
+		}
+	</style>
+	<title></title>
+</head>
+<body>
+
+	<form method="post" action="php.php"><b>
+		<table style="width: 80%;background-color: lightyellow;">
+			<th colspan="2" style="background-color: lightgreen; text-align: left;"> Personal Information</th>
+			<tr>
+				<td><label for="name">Name</label></td>
+				<td><input type="text" id="fname" name="fname"></td>
+			</tr>
+
+			<tr>
+				<td><label for="Gender">Gender</label></td>
+				<td> 
+					 <input type="radio" id="Male" name="Gender" value="Male"> 
+  					 <label for="Male">Male</label><br>
+  					 <input type="radio" id="Female" name="Gender" value="Female">
+  					 <label for="Female">Female</label><br>
+  				</td>
+			</tr>
+
+			<tr>
+				<td><label for="Designation">Designation</label></td>
+				<td><select name="Designation" id="Designation">
+					<option value="Designation">---Your Designation---</option>
+  					<option value="Computer Opertor">Computer Opertor</option>
+  					<option value="Technical Officer">Technical Officer</option>
+  					<option value="Technical assistent">Technical assistent</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td><label for="Email">Email</label></td>
+				<td><input type="text" id="Email" name="Email"></td>
+			</tr>
+			
+				<tr>
+				<td><label for="Division">Division</label></td>
+				<td>
+					  <input type="checkbox" id="SSU" name="Division" value="SSU">
+					  <label for="SSU"> SSU</label><br>
+
+					  <input type="checkbox" id="Finace" name="Division" value="Finace">
+					  <label for="Finace"> Finace</label><br>
+
+					  <input type="checkbox" id="IT" name="Division" value="IT">
+					  <label for="SSU"> IT</label><br>
+
+					  <input type="submit" name="submit" value="Submit">
+  					  <input type="reset" formtarget="_blank" value="reset">
+				</td>
+			</tr>
+		</table>
+</b>
+	</form>
+
+</body>
+</html>

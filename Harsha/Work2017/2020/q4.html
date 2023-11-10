@@ -1,0 +1,48 @@
+<!Doctype Html>
+<html>
+<head>
+<title> Student Information </title>
+</head>
+<body>
+
+<form method="POST" action="q4new.php">
+<table border="1">
+<tr>
+<th colspan="2" bgcolor="Yellow"  >Student Information</th>
+</tr>
+
+<tr>
+<td> <label> Name </label> </td>
+<td> <input type= "text" name = "txtname"> </td>
+</tr>
+
+<tr>
+<td> <label> Age </label> </td>
+<td><select name="agemenu">
+	<option> 20-22 </option>
+	<option selected = "selected"> 23-25 </option>
+	<option> 26-28 </option>
+</select></td>
+</tr>
+
+<tr>
+<td> <label> Gender </label></td>
+<td> <label> Male </label> <input type= "radio" name= "rdiobtn" value= "Male" checked> 
+	 <label> Female </label> <input type= "radio" name= "rdiobtn" value= "Female"> </td>
+</tr>
+
+<tr>
+<td> <label> Comments </label> </td>
+<td> <textarea name= "txtarea" rows="4" cols="25"> </textarea> </td>
+</tr>
+
+<tr>
+<td> </td>
+<td> <input type= "submit" name= "submit" value= "Submit">
+	 <input type= "reset" name= "reset" value= "Reset" > </td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

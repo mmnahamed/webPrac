@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JSON example 1</title>
+
+</head>
+<body>
+    <script>
+        function loadDoc() {
+            var json_http = new XMLHttpRequest(); //Create a communicator to deal with a server
+            json_http.onreadystatechange = function () { // when state changes this function will be triggered 
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var obj = JSON.parse(data);
+                    document.getElementById("name").innerHTML = "Name : " + obj.name;
+                    if (obj.married) {
+                        document.getElementById("state").innerHTML = "Relationship Stauts : " + obj.married;
+                    }
+                }
+            };
+
+            json_http.open("GET", "json_demo.txt", true);
+            json_http.send();
+        }
+    </script>
+</body>
+    <div id="name"></div>
+    <div id="state"></div>
+    <button type="button" onClick="loadDoc()">Show</button>
+</html>

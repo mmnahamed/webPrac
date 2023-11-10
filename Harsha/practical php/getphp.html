@@ -1,0 +1,26 @@
+<p>
+    <head>
+        <title>1st Ajax app</title>
+        <script type="text/javascript">
+            function loadDoc(x,y){
+                var comobj=new XMLHttpRequest();//create a communicator to deal with a server
+                comobj.onreadystatechange=function(){//when state changes this function will be triggered
+                    if(this.readyState==4 && this.status==200){
+                        document.getElementById("show").innerHTML=comobj.responseText;
+                    }
+                };
+                comobj.open("GET","ajph2.php?para1="+x+"&para2="+y,true);//communication settings with the server
+                comobj.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                comobj.send();
+            }
+        </script>
+    </head>
+    <p>
+        <h1>this is the start of the document</h1>
+        <div id="show">lets see the greeting</div>
+        <h1>this is after greeting</h1>
+        Enter your name :<input type="text" id="p1"></p>
+        <input type="text" id="p2"></p>
+        <button type="button" onclick="loadDoc(document.getElementById('p1').value,document.getElementById('p2').value)">change the sentences</button>
+    </body>
+</html>

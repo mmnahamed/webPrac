@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" language="javascript">
+            function loadDoc(){
+            var myObj={ name: "Hiruni", email:"hiruni@gmail.com", age: 45, Vegetarian: false};
+            document.getElementById("demo").innerHTML = "Name: " + myObj.name;
+            document.getElementById("demo1").innerHTML = "Age: " + myObj.age;
+            document.getElementById("demo2").innerHTML = "email: " + myObj.email;
+            var txt = JSON.stringify(myObj); //JSON string (serialization)
+            document.getElementById("JSON").innerHTML = "JSON: " + txt;
+            }
+             
+        </script>
+    </head>
+    <body>
+        <body>
+            <h2> This is before changing text</h2>
+            <div id="demo">Let javascript object work</div>
+            <div id="demo1">Let javascript object work</div>
+            <div id="demo2">Let javascript object work</div>
+            <div id="JSON">Here you see JSON object</div>
+            <br>
+            <button type="button" onclick="loadDoc()">Change the content</button>
+        </body>
+        </html>
+    </body>
+        
+    
+</html>

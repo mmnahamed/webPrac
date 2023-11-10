@@ -1,0 +1,35 @@
+
+<html>
+<head>
+<script type="text/javascript" src="code.jquery.com_jquery-3.7.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    val=0;
+  $("button.one").click(function(){
+    if(val==0){
+        $("p.me").hide();
+        $("#me").show();
+        val=1;
+        $("button.one").text("Now 1");
+    }
+    else{
+        $("#me").hide();
+        $("p.me").show();
+        val=0;
+        $("button.one").text("Now 0");
+    }
+});
+
+</script>
+</head>
+<body>
+
+<h2>This is a heading</h2>
+
+<p class="me">This is a paragraph.</p>
+<p class="me">This is another paragraph.</p>
+
+<button>Click me</button>
+
+</body>
+</html>

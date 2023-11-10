@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<button type="button" onclick="loadXMLDoc()">Get </button>
+<br><br>
+<div id="demo"></div>
+
+<script>
+function loadXMLDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    const xmlDoc = xhttp.responseXML;
+    const cd = xmlDoc.getElementsByTagName("plane");
+    myFunction(cd)
+  }
+  xhttp.open("GET", "planes.xml");
+  xhttp.send();
+}
+
+function myFunction(cd) {
+  let table="";
+  for (let i = 0; i < cd.length; i++) { 
+  
+    table += 
+    cd[i].getElementsByTagName("Year")[0].childNodes[0].nodeValue +
+    "<br>" +
+	 cd[i].getElementsByTagName("Colour")[0].childNodes[0].nodeValue +
+    "<br>" +
+	 cd[i].getElementsByTagName("Model")[0].childNodes[0].nodeValue +
+    "<br>" +
+    cd[i].getElementsByTagName("Make")[0].childNodes[0].nodeValue +
+    "<br>" ;
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+{
+  "name": {
+	"first":"jone",
+	"last":"doe"
+  },
+  "address": {
+    "house_number": 123,
+    "street": "Main Street",
+    "city": "New York",
+    "district": "Manhattan"
+  },
+  "phone_number": "123-456-7890",
+  "email": "johndoe@example.com",
+  "age": 30,
+  "gender": "male"
+}

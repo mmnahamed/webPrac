@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax HTML</title>
+</head>
+<body>
+    <div id="table-container"></div>
+    <br/><br/>
+    <button onclick="loadDoc()">Load Data</button>
+    <script type="text/javascript">
+        function loadDoc(){
+            let xhttp,xmlDoc,txt;
+            xhttp=new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if(this.readyState=== 4 && this.status===200){
+                    xmlDoc=xhttp.responseXML;
+                    let year = xmlDoc.getElementsByTagName("YEAR");
+                    let make = xmlDoc.getElementsByTagName("MAKE");
+                    let model = xmlDoc.getElementsByTagName("MODEL");
+                    let color = xmlDoc.getElementsByTagName("COLOR");
+                    txt="<table border='1' cellpadding='5' style='border-collapse:collapse;'>";
+                    txt+="<tr><th>YEAR</th><th>MAKE</th><th>MODEL</th><th>COLOR</th></tr>";
+                    for(let i=0;i<year.length;i++){
+                        txt+="<tr>";
+                        txt+="<td>"+year[i].childNodes[0].nodeValue+"</td>";
+                        txt+="<td>"+make[i].childNodes[0].nodeValue+"</td>";
+                        txt+="<td>"+model[i].childNodes[0].nodeValue+"</td>";
+                        txt+="<td>"+color[i].childNodes[0].nodeValue+"</td>";
+                        txt+="</tr>";
+
+                    }
+                    txt+="</table>";
+                    document.getElementById("table-container").innerHTML=txt;
+                }
+
+            };
+            xhttp.open("GET","planes.xml",true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>  

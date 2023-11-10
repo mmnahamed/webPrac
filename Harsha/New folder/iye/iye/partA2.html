@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>AngularJS Example</title>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
+	<script src="angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<form>
+        <label for="first_name">Name</label>
+		<input type="text" id="first_name" ng-model="first_name"><br>
+		<label for="input1">Input 1:</label>
+		<input type="number" id="input1" ng-model="input1"><br>
+ 
+		<label for="input2">Input 2:</label>
+		<input type="number" id="input2" ng-model="input2"><br>
+ 
+		<button type="button" ng-click="calculate()">Calculate</button>
+	</form>
+ 
+	<p>name: {{ firstName }} Output: {{output}}</p>
+ 
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.calculate = function() {
+                $scope.firstName = $scope.first_name;
+				$scope.output = $scope.input1 + $scope.input2;
+			};
+		});
+	</script>
+</body>
+</html>

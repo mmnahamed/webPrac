@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Json</title>
+</head>
+
+<body>
+    <h2> this is the Starting the document</h2>
+    <button type="button" onclick="loadDoc()"> Get my Collection</button>
+    <div style="margin-top:15px;" id="name">Let's see the Greeting</div>
+    <div style="margin-top:15px;" id="age">Let's see the Greeting</div>
+    <div style="margin-top:15px;" id="city">Let's see the Greeting</div>
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest(); 
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var data = xhttp.responseText;
+                    var obj = JSON.parse(data);
+                    document.getElementById("name").innerHTML = "Name : " + obj.Name;
+                    document.getElementById("age").innerHTML = "Age : " + obj.Age;   
+                    document.getElementById("city").innerHTML = "City : " + obj.Hometown;   
+                    
+                }
+            };
+            xhttp.open("GET", "json4.php", true);
+            xhttp.send();
+        }
+    </script>
+
+</body>
+
+</html>

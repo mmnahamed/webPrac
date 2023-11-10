@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX B2 21/22</title>
+
+    <script>
+        function getData() {
+            let xhttp, xmlDoc, txt, x, y, z;
+
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    xmlDoc = this.responseXML;
+                    txt = "<table border='1'><tr><th>First Name</th><th>Last Name</th><th>Phone number</th></tr>";
+                    x = xmlDoc.getElementsByTagName("Firstname");
+                    y = xmlDoc.getElementsByTagName("Lastname");
+                    z = xmlDoc.getElementsByTagName("Phonenumber");
+
+                    for (let i = 0; i < x.length; i++) {
+                        txt = txt + "<tr><td>" + x[i].childNodes[0].nodeValue + "</td>";
+                        txt = txt + "<td>" + y[i].childNodes[0].nodeValue + "</td>";
+                        txt = txt + "<td>" + z[i].childNodes[0].nodeValue + "</td></tr>";
+                    }
+
+                    txt = txt + "</table>"
+                    document.getElementById("data").innerHTML = "<br>" + txt;
+                }
+            }
+            xhttp.open("GET", "PhoneBook.xml", true);
+            xhttp.send();
+        }
+
+    </script>
+</head>
+<body>
+    <h2>Phonebook XML data</h2>
+    <button type="button" onclick="getData()">Show Data</button>
+    <div id="data"></div>
+</body>
+</html>

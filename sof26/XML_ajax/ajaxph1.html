@@ -1,0 +1,28 @@
+
+<html >
+<head>
+<title>1 st AJAX app</title>
+
+<script type="text/JavaScript">
+    function loadDoc() {
+       
+        var comobj = new XMLHttpRequest(); // create Commiunication project
+        comobj.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                document.getElementById("show").innerHTML = this.responseText;
+            }
+                
+        };
+                
+        comobj.open("GET","AJph1.php", true);
+        comobj.send();
+ };
+</script>
+</head>
+<body>
+    <h2> This is the start of document</h2>
+    <div id="show">Let's see the Greeting</div>
+    <h2>This is after the greeeting</h2>
+    <button type="button" onclick="loadDoc()">Change the content</button>
+</body>
+</html>

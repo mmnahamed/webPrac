@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button type="button" onclick="loadXMLDoc();">Get </button>
+<br><br>
+
+<div id="demo"></div>
+
+<script>
+function loadXMLDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    var cd = JSON.parse(xhttp.responseText);
+    myFunction(cd);
+  };
+  xhttp.open("GET", "movie.txt");  
+  xhttp.send();
+}
+
+function myFunction(cd) {
+  let table = "";
+  console.log(cd);
+  for (const movie of cd)
+  {
+  table += 'Title: ' + movie.TITLE + '<br>';
+  table += 'Year: ' + movie.YEAR + '<br>';
+  table += 'Country: ' + movie.COUNTRY+ '<br>';
+  console.log(movie);
+  }
+  document.getElementById("demo").innerHTML = table;  	
+}
+</script>
+</body>
+</html>

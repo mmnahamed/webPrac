@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery3.7.0\jquery-3.7.0.min.js"></script>
+    <title>Jquery</title>
+
+    <script>
+        $(document).ready(function() {
+            $(".flip").click(function() {
+                $("p#change").text("CHANGED TEXT");
+                if ($(".flip").text == "HIDE") {
+                    $(".panel").slideToggle("slow");
+                    $("button").text == "SHOW"
+                }
+                else {
+                    $(".panel").slideToggle("slow");
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .panel, .flip {
+            margin:0px;
+            padding:5px;
+            text-align: center;
+            background: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+        .panel {
+            height: 120px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="panel">
+    <p id="change">Because time is valubale, we deliver quick and easy learning</p>
+    <p>At W3School, you can study everything you need to learn.</p>
+</div>
+<button class="flip">HIDE</button>
+</body>

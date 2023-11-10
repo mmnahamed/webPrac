@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery3.7.0\jquery-3.7.0.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> -->
+        <title>RegEx</title>
+
+        <script>
+            $(document).ready(function() {
+                $("#dis3").hide();
+                $("#dis4").hide();
+                $("#dis5").hide();
+                $("#dis6").hide();
+                $("#dis7").hide();
+                $("#dis8").hide();
+                $("#name").focusout(function(){
+                    y = $("#name").val();
+
+                    reg = /^ER[a-z]+(AB)$/; //ERasdasAB
+
+                    if (reg.test(y)) {
+                        $("#dis4").hide();
+                        $("#dis3").show();
+                    }
+                    else if (y == "") {
+                        $("#dis3").hide();
+                        $("#dis4").hide();
+                    }
+                    else {
+                        $("#dis3").hide();
+                        $("#dis4").show();
+                    }
+                });
+                $("#email").focusout(function(){
+                    z = $("#email").val();
+
+                    reg = /^[^0-9]+[a-z0-9]+(@)[a-z]+\.edu$/; //shaan1213ahamed@gmail.edu
+
+                    if (reg.test(z)) {
+                        $("#dis6").hide();
+                        $("#dis5").show();
+                    }
+                    else if (z == "") {
+                        $("#dis5").hide();
+                        $("#dis6").hide();
+                    }
+                    else {
+                        $("#dis5").hide();
+                        $("#dis6").show();
+                    }
+                });
+
+                $("#url").focusout(function(){
+                    a = $("#url").val();
+
+                    reg = /^https:\/\/[a-z0-9]+\.[a-z\/0-9]+/; //shaan1213ahamed@gmail.edu
+
+                    if (reg.test(a)) {
+                        $("#dis8").hide();
+                        $("#dis7").show();
+                    }
+                    else if (a == "") {
+                        $("#dis7").hide();
+                        $("#dis8").hide();
+                    }
+                    else {
+                        $("#dis7").hide();
+                        $("#dis8").show();
+                    }
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        Enter your text : <input type="text" name="txt" id="name"><p id="dis3">Name FOUND</p><p id="dis4">Name NOT FOUND</p><br><br>
+        Enter your email : <input type="text" name="email" id="email"><p id="dis5">email FOUND</p><p id="dis6">email NOT FOUND</p><br><br>
+        Enter a valid URL : <input type="text" name="url" id="url"><p id="dis7">VALID</p><p id="dis8">NOT VALID</p>
+    </body>
+</html>

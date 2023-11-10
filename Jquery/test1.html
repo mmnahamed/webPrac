@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Jquery & AJAX</title>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        
+        <script>
+            $(document).ready(function() {
+                val = 1;
+                $(".flip").click(function() {
+                    if (val == 1) {
+                        $(".panel").slideUp("slow");
+                        val = 0;
+                        $(":button").text("SHOW");
+                    }
+                    else {
+                        $(".panel").slideDown("slow");
+                        val = 1;
+                        $(":button").text("HIDE");
+                    }
+                });
+                
+                // $(".flip").click(function() {
+                //     if ($(":button").text() == "HIDE") {
+                //         $(".panel").slideUp("slow");
+                //         $(":button").text("SHOW");
+                //     }
+                //     else {
+                //         $(".panel").slideDown("slow");
+                //         $(":button").text("HIDE");
+                //     }
+                // });
+            });
+
+        </script>
+
+        <style>
+            .panel, .flip {
+                margin:0px;
+                padding:5px;
+                text-align: center;
+                background-color: #e5eecc;
+                border:solid 1px #c3c3c3;
+            }
+            .panel {
+                height: 120px;
+            }
+        </style>
+    
+    </head>
+    <body>
+        <div class="panel">
+            Ad aute voluptate irure velit dolor nulla aliqua excepteur mollit sunt fugiat cillum eu.
+        </div>
+        <button class="flip">HIDE</button>
+
+        
+    </body>
+</html>

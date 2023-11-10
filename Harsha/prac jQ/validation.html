@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="code.jquery.com_jquery-3.7.1.js"></script>
+        <title>RegEx</title>
+
+        <script>
+            $(document).ready(function() {
+                //name validation
+                $("#name").focusout(function(){
+
+                    inputname = $("#name").val(); //form input field user input
+
+                    inputnamePattern = /^[a-zA-Z\s]+$/;
+
+                    if (inputnamePattern.test(inputname)) {
+                        $(".namemessage").html("valid name").css("color", "green");
+                    }
+                    else {
+                       $(".namemessage").html("invalid name").css("color", "red");
+                    }
+                });
+
+                //email validation
+                $("#email").focusout(function(){
+                    inputemail = $("#email").val();
+
+                    inputemailPattern = /[a-z]+@[a-z]+.(com|org|lk)/i;
+
+                    if (inputemailPattern.test(inputemail)) {
+                        $(".emailmessage").html("valid email").css("color", "green");
+                    }
+                    else {
+                       $(".emailmessage").html("invalid email").css("color", "red");
+                    }
+                });
+
+                //phone validation
+                $("#phone").focusout(function(){
+                    inputphone = $("#phone").val();
+
+                    inputphonePattern = /^(071|075|078|076|077)[0-9]{7,7}$/;
+
+                    if (inputphonePattern.test(inputphone)) {
+                        $(".phonemessage").html("valid phone number").css("color", "green");
+                    }
+                    else {
+                       $(".phonemessage").html("invalid phone number").css("color", "red");
+                    }
+                });
+
+
+                //url validation
+                $("#url").focusout(function(){
+                    inputurl = $("#url").val();
+
+                    inputurlPattern = /(http)+\/\/:[a-z]+.(com|org|lk)/i;
+
+                    if (inputurlPattern.test(inputurl)) {
+                        $(".urlmessage").html("valid URL").css("color", "green");
+                    }
+                    else {
+                       $(".urlmessage").html("invalid URL").css("color", "red");
+                    }
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <form action="insert.php" method="post">
+            Enter your name : 
+            <input type="text" name="fname" id="name">
+                <p  class="namemessage"></p>
+                <br><br>
+            Enter your email : 
+            <input type="text" name="email" id="email">
+                <p  class="emailmessage"></p>
+                <br><br>
+            Enter a valid Phone number : 
+            <input type="phone" name="phone" id="phone">
+                <p  class="phonemessage"></p><br><br>
+
+            Enter a valid URL : 
+            <input type="text" name="url" id="url">
+                <p  class="urlmessage"></p><br><br>
+
+            <input type="submit" name="submit">
+        </form>
+   </body>
+</html>

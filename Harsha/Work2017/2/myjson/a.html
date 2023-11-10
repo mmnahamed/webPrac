@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<button type="button" onclick="loadXMLDoc()"> Get </button>
+<br><br>
+<div id="demo"></div>
+
+<script>
+function loadXMLDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    var cd = JSON.parse(xhttp.responseText);
+    myFunction(cd)
+  }
+  xhttp.open("GET", "http://localhost:8080/Work2017/2/myjson/personal.txt");
+  xhttp.send();
+}
+
+function myFunction(cd) {
+  let table="";
+  console.log(cd);
+  table += 'Name: '+ cd.name.first + ' ' + cd.name.last + '<br>';
+  table += 'Age: '+ cd.age + '<br>';
+  table +=  'Address :'+ cd.address.house_number + ' ' + cd.address.street + '<br>';
+  table +=  'Phone Number :' + cd.phone_number + '<br>';
+  document.getElementById("demo").innerHTML =  table;
+  	
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX with TXT file</title>
+
+    <script>
+        function loadDoc() {
+            var comobj = new XMLHttpRequest(); // Making asynchronous requests to a server
+            comobj.onreadystatechange = function () { // when state changes this function will be triggered 
+                if (this.readyState == 4 && this.status == 200) {
+                    // Checks if the ready state is 4 (which means the request is complete)
+                    // the status is 200 (which means "OK")
+
+                    document.getElementById("show").innerHTML = this.responseText;
+                }
+            };
+
+            comobj.open("GET", "testTxtFile.txt", true);
+            // comobj.open("GET", "http://localhost/NET-21-B2-21/Web%20Programming/AJAX/test2.txt", true);  
+            // opens a connection HTTP GET method
+            // third argument, true, indicates that the request should be asynchronous
+
+            comobj.send(); // Sends the HTTP request to the server
+
+        }
+    </script>
+
+</head>
+<body>
+    <b>AJAX asynchronous request to server GET TXT file content</b><br><br>
+    <h2>Thus is the start of the Document</h2>
+    <div id="show">
+        Lets see the greeting...!
+    </div>
+    <h2>This is after the greeing</h2>
+    <button type="button" onClick="loadDoc()">Change</button>
+</body>
+</html>

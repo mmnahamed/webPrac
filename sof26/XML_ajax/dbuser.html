@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+        
+       var xmlhttp = new XMLHttpRequest();
+  		xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+				
+            }
+        };
+        xmlhttp.open("GET","DBuser.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
+</head>
+<body>
+<label>Enter Name: </label><input type="text" id="txt" onkeyup="showUser(this.value)"/>
+<div id="txtHint"><b>Persons info will be listed here...</b></div>
+
+</body>
+</html>

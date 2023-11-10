@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<style>
+table, td, th {
+  border: 2px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  height: 70px;
+}
+</style>
+
+
+
+<body>
+<form method="post" action="tphp.php">
+<table border="1" width: 100%>
+<tr>
+<td colspan = "2">Student Details</td>
+
+</tr>
+
+
+
+<tr>
+<td>Name</td>
+<td><input type="text" id="fname" name="fname"></td>
+</tr>
+
+<tr>
+<td>Selected Subject</td>
+<td hight = "70px">
+	<input type="radio" id="VB" name="Subject" value="VB"> 
+	<label for="VB">VB</label><br>
+	<input type="radio" id="Java" name="Subject" value="Java">
+	<label for="Java">Java</label><br>
+	<input type="radio" id="C" name="Subject" value="C"> 
+	<label for="C">C</label><br>
+	</td>
+</tr>
+
+<tr>
+<td>Cantact Number</td>
+<td><input  type="text" id="Cantact" name="CantactN"></td>
+</tr>
+
+
+
+<tr>
+<td colspan = "2">
+<input type="submit" name="submit" value="Submit">
+<input type="reset" formtarget="_blank" value="reset">
+			
+</td>
+</tr>
+
+</table>
+</form>
+
+
+
+
+</body>
+</html>
+

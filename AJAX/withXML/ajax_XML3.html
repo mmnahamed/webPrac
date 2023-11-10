@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX with XML</title>
+</head>
+<body>
+    <h1>My CD Collection</h1>
+    <br>
+
+    <input type="checkbox" id="title" value="TITLE"> Title  |
+    <input type="checkbox" id="country" value="COUNTRY"> Country |
+    <input type="checkbox" id="company" value="COMPANY"> Company |
+    <input type="checkbox" id="price" value="PRICE"> Price |
+    <input type="checkbox" id="year" value="YEAR"> Year |
+    <button type="button" onclick="loadDoc()">Get CD Collection</button>
+    <p id="demo"></p>
+    <br><br>
+
+    <script>
+        function loadDoc() {
+            var xhttp, xmlDoc, x, i, category, list;
+
+            var title = document.getElementById("title").checked;
+            var country = document.getElementById("country").checked;  
+            var company = document.getElementById("company").checked;  
+            var price = document.getElementById("price").checked;  
+            var year = document.getElementById("year").checked;
+
+            xhttp = new XMLHttpRequest(); // Create communication object
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    xmlDoc = this.responseXML; // Server returns XML structure
+
+                    x = xmlDoc.getElementsByTagName("ARTIST");
+                    
+                    list = "<table border='1'><tr><th>ARTIST</th>";
+
+                    if (title) {
+                        list += "<th>Title</th>";
+                    }
+                    if (country) {
+                        list += "<th>Country</th>";
+                    }
+                    if (company) {
+                        list += "<th>Company</th>";
+                    }
+                    if (price) {
+                        list += "<th>Price</th>";
+                    }
+                    if (year) {
+                        list += "<th>Year</th>";
+                    }
+
+                    list += "</tr>";
+
+                    for (i = 0; i < x.length; i++) {
+                        list += "<tr><td>" + x[i].childNodes[0].nodeValue + "</td>";
+                        if (title){
+                            list += "<td>" + xmlDoc.getElementsByTagName("TITLE")[i].childNodes[0].nodeValue + "</td>";
+                        }
+                        else if (company){  
+                            list += "<td>" + xmlDoc.getElementsByTagName("COMPANY")[i].childNodes[0].nodeValue + "</td>";
+                        }
+                        else if (country){
+                            list += "<td>" + xmlDoc.getElementsByTagName("COUNTRY")[i].childNodes[0].nodeValue + "</td>";
+                        }
+                        else if (price.checked == true){
+                            list += "<td>" + xmlDoc.getElementsByTagName("PRICE")[i].childNodes[0].nodeValue + "</td>";
+                        } 
+                        else if (year.checked == true){ 
+                            list += "<td>" + xmlDoc.getElementsByTagName("YEAR")[i].childNodes[0].nodeValue + "</td>";
+                        }  
+                        list += "</tr>";
+                    }
+
+                    list += "</table>";
+                    document.getElementById("demo").innerHTML = list;
+                }
+            };
+            xhttp.open("GET", "cd_catalog.xml", true);
+            xhttp.send();
+        }
+    </script>
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX with JSON</title>
+
+</head>
+<body>
+    <script>
+        function loadDoc() {
+            var comobj = new XMLHttpRequest(); //Create a communicator to deal with a server
+            comobj.onreadystatechange = function () { // when state changes this function will be triggered 
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("show").innerHTML = this.responseText;
+                }
+            };
+
+            comobj.open("GET", "ajax_JSON.php", true);
+            comobj.send();
+        }
+    </script>
+</body>
+    <h2>This is the start of the Document</h2>
+    <div id="show">
+        Lets see the greeting...!
+    </div>
+    <h2>This is after the greeing</h2>
+    <button type="button" onClick="loadDoc()">Change</button>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+		<script>
+		function loadDoc(name, d) {
+		var xhttp, xmlDoc, txt, x, i;
+		var year, make, model, colour;
+		xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+		xmlDoc = xhttp.responseXML;
+		txt = "";
+		x = xmlDoc.getElementsByTagName(name);
+		year = xmlDoc.getElementsByTagName("year");
+		make = xmlDoc.getElementsByTagName("make");
+		model = xmlDoc.getElementsByTagName("model");
+		colour = xmlDoc.getElementsByTagName("colour");
+		txt +="<table border='1'>";
+		txt +="<tr><th>Name</th><th>Make</th><th>Model</th><th>Colour</th></tr>";
+		for(i=0;i<x.length;i++){
+			txt += "<tr>";
+			txt = txt + "<td>" +year[i].childNodes[0].nodeValue+"</td>";
+			txt = txt + "<td>" +make[i].childNodes[0].nodeValue+"</td>";
+			txt = txt + "<td>" +model[i].childNodes[0].nodeValue+"</td>";
+			txt = txt + "<td>" +colour[i].childNodes[0].nodeValue+"</td>";
+			txt += "</tr>";
+		}
+		txt +="</table>"
+
+		document.getElementById(d).innerHTML = txt;
+		} };
+		xhttp.open("GET", "cars.xml", true);
+		xhttp.send();
+		}
+	</script> 
+</head>
+<body>
+	<button onclick="loadDoc('list','showdata')"> Load Data</button>
+	<div id="showdata"></div>
+</body>
+</html>

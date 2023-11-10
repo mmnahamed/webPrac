@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>AJAX</title>
+
+    <script>
+        function showText(txt) {
+            let xmlObj = new XMLHttpRequest();
+            xmlObj.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtarea").innerHTML = this.responseText;
+                }
+            };
+
+            console.log(txt);
+
+            xmlObj.open("POST", "test.php", true);
+            xmlObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlObj.send("text=" + txt);
+
+        }
+    </script>
+
+
+</head>
+<body>
+    Enter your name : <input type="text" id="txt"/>
+    <button type="button" onClick="showText(document.getElementById('txt').value)">GET RESPONCE</button>
+    <div id="txtarea">
+        Response Area
+    </div>
+</body>
+</html>

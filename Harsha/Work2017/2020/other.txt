@@ -1,0 +1,47 @@
+$num = 4;  
+$factorial = 1;  
+for ($x=$num; $x>=1; $x--)   
+{  
+  $factorial = $factorial * $x;  
+}  
+echo "Factorial of $num is $factorial";
+
+
+...................................................................................................................................................................
+
+
+<?php
+function sum_of_digits($nums) {
+    $digits_sum = 0;
+      for ($i = 0; $i < strlen($nums); $i++) {
+             $digits_sum += $nums[$i];
+               }
+      return $digits_sum;
+}
+echo sum_of_digits("12345")."\n";
+echo sum_of_digits("9999")."\n";
+?>
+
+
+
+...................................................................................................................................................................
+
+
+write a php program to print the numbers 1 - 10 if numbers 
+are less than 5 print 1 is less than 5... etc, if number are greater
+ than 5 print 6 is grater then 5.. etc.
+
+<?php
+
+for ($i = 1; $i <= 10; $i++) {
+  if ($i < 5) {
+    echo "$i is less than 5<br>";
+  } else {
+    echo "$i is greater than 5<br>";
+  }
+}
+
+?>
+
+
+

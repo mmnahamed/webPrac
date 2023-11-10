@@ -1,0 +1,34 @@
+{
+   "cars": [
+         {
+            "Year": "2023",
+            "Make": "Ford",
+            "Model": "Mustang",
+            "Color": "Red"
+         },
+         {
+            "Year": "2022",
+            "Make": "Toyota",
+            "Model": "Camry",
+            "Color": "Green"
+         },
+         {
+            "Year": "2021",
+            "Make": "Chevrolet",
+            "Model": "Silverado",
+            "Color": "Blue"
+         },
+         {
+            "Year": "2028",
+            "Make": "Honda",
+            "Model": "Civic",
+            "Color": "Yellow"
+         },
+         {
+            "Year": "2056",
+            "Make": "BMW",
+            "Model": "X5",
+            "Color": "Black"
+         }
+      ]
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+
+    <script>
+        function getData() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let json = this.responseText;
+                    console.log(json);
+                    let obj = JSON.parse(json);
+                    let text = JSON.stringify(obj);
+                    let output = document.getElementById("output")
+                    output.innerHTML = "Name : " + obj.name;
+                    if (obj.Vegetarian == false) {
+                        output.innerHTML += "<br>Vegetarian : " + obj.Vegetarian;
+                    }
+                    document.getElementById("json").innerHTML = text;
+                }
+            };
+
+            xhttp.open("GET", "json.txt", true);
+            xhttp.send();
+            
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <button type="button" onclick="getData()">GET OUTPUT</button>
+    <div id="output">OUTPUT</div>
+    <div id="json"></div>
+</body>
+</html>

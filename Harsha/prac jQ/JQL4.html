@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script type="text/javascript" src="code.jquery.com_jquery-3.7.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".flip").click(function(){
+                    $(".panel").slideDown("slow");
+                    });
+        });
+        </script>
+        <style type="text/css">
+            div.panel,p.flip
+            {
+                margin:0px;
+                padding: 5px;
+                text-align: center;
+                background-color: #42a5e7;
+                border: solid 1px #c3c3c3;
+}
+div.panel{
+    height:120px;}
+        </style>
+    </head>
+    <body>
+        <p class="panel" Because time is valuable, we deliver quick and easy learning.
+            At W3Schools, you can study everything you need to learn, in an accessible and handy format
+        <div class="flip">Hide Panel
+        </div>
+        
+       
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test 1 AJAX</title>
+
+    <script>
+        function loadDoc() {
+            var comobj = new XMLHttpRequest(); //Create a communicator to deal with a server
+            comobj.onreadystatechange = function () { // when state changes this function will be triggered 
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("show").innerHTML = this.responseText;
+                }
+            };
+
+            // comobj.open("GET", "http://localhost/NET-21-B2-21/Web%20Programming/AJAX/test2.txt", true); // Communcation settings with the server
+            comobj.open("GET", "http://192.168.10.47/NET-21-B2-21/Web%20Programming/AJAX/test2.txt", true);
+            comobj.send();
+
+            $.ajax({
+                type: 'GET',
+                crossDomain: true,
+                dataType: 'jsonp',
+                url: '',
+                success: function(comobj){
+                }
+            });
+
+        }
+    </script>
+
+</head>
+<body>
+    <h2>Thus is the start of the Document</h2>
+    <div id="show">
+        Lets see the greeting...!
+    </div>
+    <h2>This is after the greeing</h2>
+    <button type="button" onClick="loadDoc()">Change</button>
+</body>
+</html>

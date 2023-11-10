@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Convertion of JS Object to JSON Object</title>
+    
+    <script>
+        function loadFunc() {
+            var obj = {
+                name : "Shaan",
+                email : "sample@sample.com",
+                age : 26,
+                Vegetarian : false
+            }
+            document.getElementById("demo").innerHTML = "Name : " + obj.name;
+            document.getElementById("demo1").innerHTML = "Age : " + obj.age;
+            document.getElementById("demo2").innerHTML = "email : " + obj.email;
+
+            var txt = JSON.stringify(obj); // JSON string serialization
+
+            document.getElementById("JSON").innerHTML = "JSON : " + txt;
+        }
+    </script>
+</head>
+<body>
+    <h2>This is before changing text</h2>
+    <div id="demo">Let JavaScript object work</div>
+    <div id="demo1">Let JavaScript object work</div>
+    <div id="demo2">Let JavaScript object work</div>
+
+    <br><br>
+
+    <div id="JSON">Heres the JSON Object</div>
+
+    <button type="button" onclick="loadFunc()">Convert</button>
+    
+</body>
+</html>

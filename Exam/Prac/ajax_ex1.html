@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>MY CD COLLECTION</h1>
+    <button type="button" onclick="loadDoc()">Get my collection</button>
+    <table id="myTable" border="1">
+        <tr>
+            <th>Country</th>
+            <th>Artist</th>
+            <th>company</th>
+        </tr>
+    </table>
+    <script>
+        function loadDoc() {
+            var xhttp, xmlDoc, table, row, country, artist, i, company;
+            xhttp = new XMLHttpRequest(); // CREATE COMMUNICATION OBJECT
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    xmlDoc = xhttp.responseXML; // SERVER RETURN XML FUNCTION
+                    table = document.getElementById("myTable");
+                    var countries = xmlDoc.getElementsByTagName("COUNTRY");
+                    var artists = xmlDoc.getElementsByTagName("ARTIST");
+                    var companies = xmlDoc.getElementsByTagName("COMPANY");
+
+                    for (i = 0; i < countries.length; i++) {
+                        row = table.insertRow(-1);
+                        country = row.insertCell(0);
+                        artist = row.insertCell(1);
+                        company = row.insertCell(2);
+                        country.innerHTML = countries[i].childNodes[0].nodeValue;
+                        artist.innerHTML = artists[i].childNodes[0].nodeValue;
+                        company.innerHTML = companies[i].childNodes[0].nodeValue;
+                    }
+                }
+            };
+            xhttp.open("GET", "cd_catalog.xml", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

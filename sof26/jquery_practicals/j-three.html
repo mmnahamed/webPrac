@@ -1,0 +1,21 @@
+<html>
+    <head>
+        
+        <script type="text/javascript" src="code.jquery.com_jquery-3.7.0.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+             $("p").click(function(){
+                 $(this).hide(5000);
+             });
+             $("h1").click(function(){
+                $("p").show(1000);
+             });
+            });
+         </script>
+    </head>
+    <body>
+        <p>click on me to hide me</p>
+        <h1>This is a header</h1>
+        <p>This is second para</p>
+    </body>
+</html>

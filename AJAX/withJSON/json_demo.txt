@@ -1,0 +1,6 @@
+{
+    "name" : "Saman",
+    "age" : 40,
+    "city" : "Colombo",
+    "married" : true
+}

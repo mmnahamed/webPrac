@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="test.css">
+        <script src="jquery3.7.0\jquery-3.7.0.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> -->
+        <script>
+            $(document).ready(function() {
+                // $("#text").text("Hello JQuery!");
+                // $("p").click(function() {
+                //     $(this).hide();
+                // });
+
+                $("button").click(function() {
+                    $("#change").addClass("change1");
+                    $("p.change").hide();
+                    $(":button").text("OVER");
+                });
+
+            });
+
+
+
+        </script>
+
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <h1 id="text"></h1>
+        <p>CLICK TO HIDE ME!!</p>
+        <h1>This is a header!</h1>
+        <p>This is a para</p> -->
+
+        <p id="change">change this</p>
+        <p class="change">random para 1</p>
+        <p class="change">random para 2</p>
+        <p>random para 3</p>
+        <button>CLICK ME</button>
+    </body>
+</html>

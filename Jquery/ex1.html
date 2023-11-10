@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery\jquery3.7.0\jquery-3.7.0.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> -->
+        <title>Document</title>
+
+        <script>
+            $(document).ready(function() {
+                // $(".hide").click(function() {
+                //     $(".panel").slideUp("slow");
+                // });
+
+                // $(".show").click(function() {
+                //     $(".panel").slideDown("slow");
+                // });
+                val = 1;
+                $(".flip").click(function() {
+                    if (val == 0) {
+                        $(".panel").slideUp("slow");
+                        val = 1;
+                        $(":button").text("SHOW");
+                    }
+                    else if (val == 1) {
+                        $(".panel").slideDown("slow");
+                        val = 0;
+                        $(":button").text("HIDE");
+                    }
+                });
+            });
+        </script>
+
+        <style>
+            .panel, .flip {
+                margin:0px;
+                padding:5px;
+                text-align: center;
+                background: #e5eecc;
+                border: solid 1px #c3c3c3;
+            }
+            .panel {
+                height: 120px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="panel">
+            <p>Because time is valubale, we deliver quick and easy learning</p>
+            <p>At W3School, you can study everything you need to learn.</p>
+        </div>
+        <button class="flip">HIDE</button>
+    </body>
+</html>

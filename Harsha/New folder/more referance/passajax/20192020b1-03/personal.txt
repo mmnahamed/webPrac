@@ -1,0 +1,16 @@
+{
+"name": {
+"firstName": "John",
+"lastName": "Doe"
+},
+"address": {
+"houseNumber": "123",
+"street": "Main St",
+"City": "kegalle",
+"District": "kegalle"
+},
+"phoneNumber": "071-5648751",
+"email": "john.doe@example.com",
+"age": 27,
+"gender": "male"
+}

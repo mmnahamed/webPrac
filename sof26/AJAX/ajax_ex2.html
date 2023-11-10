@@ -1,0 +1,22 @@
+<html>
+<head>
+<script type="text/javascript">
+    function loadDoc(){
+        var comobj=new XMLHttpRequest(); // create a communicator to deal with a sever
+        comobj.onreadystatechange=function(){ // when state change this function will be triggered
+            if (this.readyState==4 && this.status==200){
+                document.getElementById("show").innerHTML=this.responseText;
+            }
+        };
+        comobj.open("GET","http://192.168.10.80/sof/AJAX/ajaxintro1.txt",true);// communication setting with the sever
+        comobj.send();
+    }
+</script>
+</head>
+<body>
+    <h2> This is the start of document</h2>
+    <div id ="show" >let's see the greeting</div>
+    <h2>This is after the greeting</h2>
+    <button type="button" onclick="loadDoc()"> change the content</button>
+</body>
+</html>

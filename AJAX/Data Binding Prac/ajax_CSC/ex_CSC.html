@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Input CSC</title>
+
+<script>
+    function loadDoc(x) {
+        var comobj = new XMLHttpRequest(); 
+        comobj.onreadystatechange = function () { 
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("show").innerHTML = this.responseText;
+            }
+        };
+        comobj.open("POST", "test_php.php", true);
+        comobj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        comobj.send("para="+x);
+    }
+</script>
+</head>
+<body>
+Input data Client to Server side and again server side to client side. <br><br>
+
+Enter your name : <input type="text" id="p1"/>
+<button type="button" onClick="loadDoc(document.getElementById('p1').value)">Change</button>
+<div id="show"> <!-- This div will be updated with the server response -->
+    Response will appear here...
+</div>
+</body>
+</html>
+
+php code of above html code
+
+<?php
+
+    echo "TEXT " . $_POST['para']. "!";
+    exit;
+?>
+
+explain these codes line by line

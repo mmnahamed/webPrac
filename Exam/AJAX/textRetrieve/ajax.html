@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>AJAX</title>
+
+    <script>
+        function loadDoc() {
+            let xmlObj = new XMLHttpRequest();
+            xmlObj.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("show").innerHTML = this.responseText;
+                }
+            };
+
+            xmlObj.open("GET", "test1.php", true);
+            xmlObj.send();
+
+        }
+    </script>
+
+
+</head>
+<body>
+    <h2>Start of the Body</h2>
+    <div id="show">
+        Lets see the greeting...!
+    </div>
+    <h2>This is after the greeing</h2>
+    <button type="button" onClick="loadDoc()">GET DATA</button>
+</body>
+</html>

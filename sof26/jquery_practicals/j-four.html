@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="ch.css">
+        <script type="text/javascript" src="code.jquery.com_jquery-3.7.0.js"></script>
+        <script type="text/javascript">
+           $(document).ready(function(){
+            $("button").click (function(){
+                $("p#my1").addClass("changeCol");
+                $("p.my1").hide();
+
+            });
+           });
+         </script>
+    </head>
+    <body>
+        <h2 class="my1">This is a heading</h2>
+        <p id="my1">This is a paragraph to change color</p>
+        <p class="my1">This is second para</p>
+        <p class="my1">This is third para</p>
+        <button>click me</button>
+    </body>
+</html>

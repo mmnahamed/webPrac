@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>1st Ajax app</title>
+        <script>
+            function showUser(str){
+                if(str =="")
+                {
+                    document.getElementById("txtHint").innerHTML = " ";
+                    return;
+                }
+                else
+                {
+                    var XMLHttp = new XMLHttpRequest();
+                    XMLHttp.onreadystatechange = function(){
+                    if(this.readyState==4 && this.status==200){
+                        document.getElementById("txtHint").innerHTML=XMLHttp.responseText;
+                    }
+                };
+                XMLHttp.open("GET","DBuser.php?q="+str,true);//communication settings with the server
+                XMLHttp.send();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Enter your first name:<input type="text" id="txt"></p>
+        <button type="button" onclick="showUser(document.getElementById('txt').value)">click</button>
+        <div id="txtHint"><b>Persons infor will be listed here.........</b></div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>1st Ajax app</title>
+        <script type="text/javascript">
+            function loadDoc(){
+                var comobj=new XMLHttpRequest();//create a communicator to deal with a server
+                comobj.onreadystatechange=function(){//when state changes this function will be triggered
+                    if(this.readyState==4 && this.status==200){
+                        document.getElementById("show").innerHTML=comobj.responseText;
+                    }
+                };
+                comobj.open("GET","runs.php",true);//communication settings with the server
+                comobj.send();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>this is the start of the document</h1>
+        <div id="show">lets see the greeting</div>
+        <h1>this is after heading</h1>
+        <button type="button" onclick="loadDoc()">change the sentences</button>
+    </body>
+</html>

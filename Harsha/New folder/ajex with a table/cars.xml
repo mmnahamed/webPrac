@@ -1,0 +1,21 @@
+
+<Cars>
+    <Car>
+        <Year>2020</Year>
+        <Make>Toyota</Make>
+        <Model>Prius</Model>
+        <Color>Red</Color>
+    </Car>
+    <Car>
+        <Year>2019</Year>
+        <Make>Honda</Make>
+        <Model>Civic</Model>
+        <Color>Blue</Color>
+    </Car>
+    <Car>
+        <Year>2018</Year>
+        <Make>Kia</Make>
+        <Model>Sportage</Model>
+        <Color>Black</Color>
+    </Car>
+</Cars>

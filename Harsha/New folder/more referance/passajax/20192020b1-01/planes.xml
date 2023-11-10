@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PLANES>
+    <PLANE>
+        <YEAR>2019</YEAR>
+        <MAKE>Boeing</MAKE>
+        <MODEL>737 MAX</MODEL>
+        <COLOR>White</COLOR>
+    </PLANE> 
+    <PLANE>
+        <YEAR>2018</YEAR>
+        <MAKE>Airbus</MAKE>
+        <MODEL>A320neo MAX</MODEL>
+        <COLOR>Blue</COLOR>
+    </PLANE> 
+    <PLANE>
+        <YEAR>2021</YEAR>
+        <MAKE>Embraer</MAKE>
+        <MODEL>E175-E2</MODEL>
+        <COLOR>Red</COLOR>
+    </PLANE> 
+</PLANES>

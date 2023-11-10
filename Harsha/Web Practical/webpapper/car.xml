@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars>
+    <car>
+        <Year>2023</Year>
+        <Make>Ford</Make>
+        <Model>Mustang</Model>
+        <Color>Red</Color>
+    </car>
+    <car>
+        <Year>2022</Year>
+        <Make>Toyota</Make>
+        <Model>Camry</Model>
+        <Color>Green</Color>
+    </car>
+    <car>
+        <Year>2021</Year>
+        <Make>Chevrolet</Make>
+        <Model>Silverado</Model>
+        <Color>Blue</Color>
+    </car>
+    <car>
+        <Year>2028</Year>
+        <Make>Honda</Make>
+        <Model>Civic</Model>
+        <Color>Yellow</Color>
+    </car>
+    <car>
+        <Year>2056</Year>
+        <Make>BMW</Make>
+        <Model>X5</Model>
+        <Color>Black</Color>
+    </car>
+</cars>

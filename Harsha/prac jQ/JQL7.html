@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script type="text/javascript" src="code.jquery.com_jquery-3.7.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#dis1").hide();
+                $("#dis2").hide();
+                var reg=/(http)+\/\/:[a-z]+.(com|org|lk)/i;
+            $("#myname").focusout(function(){
+                x=$("#myname").val();
+                if(!reg.test(x)){
+                    $("#dis1").show();
+                    $("#dis2").hide();
+                }
+                else{
+                    $("#dis2").show();
+                    $("#dis1").hide();
+                }
+            })
+            ;  });
+        </script>
+    </head>
+    <body>
+<label> Enter Address:</label><input type="text" id="myname">
+<label id ="dis1"><font color="#FF0000"> Not  an acceptable Address</font></label>
+<label id ="dis2"><font color="#00CC00"> Your Input is a Correct Address</font></label>
+<button class="check">check</button>
+        
+
+    </body>
+</html>
